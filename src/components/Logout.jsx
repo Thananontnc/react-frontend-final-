@@ -15,14 +15,14 @@ export default function Logout() {
     setIsLoading(false);
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     onLogout();
-  },[]);
+  }, []);
 
   if (isLoading) {
     return (<><h3>Loging out...</h3></>);
   }
   else {
-    return (<Navigate to={<Login/>} replace/>)
+    return (<Navigate to="/login" replace />)
   }
 }
