@@ -29,7 +29,7 @@ export default function BookBorrow() {
 
   const handleStatusChange = async (id, newStatus) => {
     try {
-      const res = await fetch(`${API_URL}/api/borrow/${id}`, {
+      const res = await fetch(`${API_URL}/api/borrow?id=${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: newStatus }),
