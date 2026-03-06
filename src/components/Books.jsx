@@ -131,17 +131,26 @@ export default function Books() {
             <div key={b._id} className="glass-panel glass-card" style={{ padding: '1.5rem', margin: 0, display: 'flex', flexDirection: 'column', gap: '1rem', position: 'relative' }}>
               <div style={{ position: 'absolute', top: '1rem', right: '1rem', display: 'flex', gap: '0.5rem' }}>
                 {b.status === 'DELETED' ? (
-                  <span className="badge alert">DELETED</span>
+                  <span className="badge alert" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                    <svg style={{ width: '12px', height: '12px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                    DELETED
+                  </span>
                 ) : (
                   b.quantity > 0 ? (
-                    <span className="badge success">In Stock</span>
+                    <span className="badge success" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                      <svg style={{ width: '12px', height: '12px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                      In Stock
+                    </span>
                   ) : (
-                    <span className="badge warning">Empty Stock</span>
+                    <span className="badge warning" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                      <svg style={{ width: '12px', height: '12px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                      Empty Stock
+                    </span>
                   )
                 )}
               </div>
 
-              <div style={{ paddingRight: '1rem', minHeight: '60px' }}>
+              <div style={{ paddingRight: '6.5rem', minHeight: '60px' }}>
                 <h3 style={{ margin: 0, fontSize: '1.25rem', color: 'white', lineHeight: '1.3' }}>{b.title}</h3>
                 <p style={{ margin: '0.4rem 0 0 0', color: 'var(--text-secondary)', fontSize: '0.95rem' }}>by {b.author}</p>
               </div>
