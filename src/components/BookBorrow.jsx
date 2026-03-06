@@ -105,12 +105,15 @@ export default function BookBorrow() {
                     </td>
                     <td>
                       {user.role === 'ADMIN' && req.status === 'INIT' ? (
-                        <div style={{ display: 'flex', gap: '0.5rem' }}>
-                          <button onClick={() => handleStatusChange(req._id, 'ACCEPTED')} style={{ padding: '0.4rem 0.8rem', fontSize: '0.8rem', background: '#22c55e' }}>
+                        <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap' }}>
+                          <button onClick={() => handleStatusChange(req._id, 'ACCEPTED')} style={{ padding: '0.4rem 0.6rem', fontSize: '0.75rem', background: '#22c55e', flex: '1 1 auto' }}>
                             Accept
                           </button>
-                          <button onClick={() => handleStatusChange(req._id, 'CLOSE-NO-AVAILABLE-BOOK')} className="danger" style={{ padding: '0.4rem 0.8rem', fontSize: '0.8rem' }}>
-                            Reject
+                          <button onClick={() => handleStatusChange(req._id, 'CLOSE-NO-AVAILABLE-BOOK')} className="warning" style={{ padding: '0.4rem 0.6rem', fontSize: '0.75rem', flex: '1 1 auto' }}>
+                            No Stock
+                          </button>
+                          <button onClick={() => handleStatusChange(req._id, 'CANCEL-ADMIN')} className="danger" style={{ padding: '0.4rem 0.6rem', fontSize: '0.75rem', flex: '1 1 auto' }}>
+                            Cancel
                           </button>
                         </div>
                       ) : user.role === 'USER' && req.status === 'INIT' ? (
