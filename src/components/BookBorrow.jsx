@@ -18,7 +18,9 @@ export default function BookBorrow() {
       const res = await fetch(`${API_URL}/api/borrow`, { credentials: "include" });
       if (res.ok) {
         const data = await res.json();
-        setRequests(data);
+        // Sort descending by createdAt
+        const sortedData = data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        setRequests(sortedData);
       }
     } catch (err) {
       console.error(err);
