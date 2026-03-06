@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css'
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import RequireAuth from './middleware/RequireAuth';
 import Login from './components/Login';
 import Logout from './components/Logout';
