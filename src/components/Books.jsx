@@ -129,16 +129,19 @@ export default function Books() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1.5rem' }}>
           {books.map(b => (
             <div key={b._id} className="glass-panel glass-card" style={{ padding: '1.5rem', margin: 0, display: 'flex', flexDirection: 'column', gap: '1rem', position: 'relative' }}>
-              {b.status === 'DELETED' && (
-                <span className="badge alert" style={{ position: 'absolute', top: '1rem', right: '1rem' }}>DELETED</span>
-              )}
-              {b.quantity > 0 ? (
-                <span className="badge success" style={{ position: 'absolute', top: '1rem', right: b.status === 'DELETED' ? '6rem' : '1rem' }}>In Stock</span>
-              ) : (
-                <span className="badge warning" style={{ position: 'absolute', top: '1rem', right: b.status === 'DELETED' ? '6rem' : '1rem' }}>Empty Stock</span>
-              )}
+              <div style={{ position: 'absolute', top: '1rem', right: '1rem', display: 'flex', gap: '0.5rem' }}>
+                {b.status === 'DELETED' ? (
+                  <span className="badge alert">DELETED</span>
+                ) : (
+                  b.quantity > 0 ? (
+                    <span className="badge success">In Stock</span>
+                  ) : (
+                    <span className="badge warning">Empty Stock</span>
+                  )
+                )}
+              </div>
 
-              <div style={{ paddingRight: '5rem', minHeight: '60px' }}>
+              <div style={{ paddingRight: '1rem', minHeight: '60px' }}>
                 <h3 style={{ margin: 0, fontSize: '1.25rem', color: 'white', lineHeight: '1.3' }}>{b.title}</h3>
                 <p style={{ margin: '0.4rem 0 0 0', color: 'var(--text-secondary)', fontSize: '0.95rem' }}>by {b.author}</p>
               </div>

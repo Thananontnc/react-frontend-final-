@@ -131,7 +131,7 @@ export default function BookDetail() {
             <div style={{ padding: '1rem', background: 'rgba(0,0,0,0.2)', borderRadius: '12px' }}>
               <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.2rem' }}>Stock Quantity</p>
               <p style={{ fontSize: '1.25rem', color: 'white', fontWeight: 500, display: 'flex', alignItems: 'center', margin: 0 }}>
-                {book.quantity} {book.quantity > 0 ? <span className="badge success" style={{ marginLeft: 'auto' }}>Available Item</span> : <span className="badge warning" style={{ marginLeft: 'auto' }}>Out of Stock</span>}
+                {book.quantity} {book.status !== 'DELETED' && (book.quantity > 0 ? <span className="badge success" style={{ marginLeft: 'auto' }}>Available Item</span> : <span className="badge warning" style={{ marginLeft: 'auto' }}>Out of Stock</span>)}
               </p>
             </div>
             <div style={{ padding: '1rem', background: 'rgba(0,0,0,0.2)', borderRadius: '12px' }}>
